@@ -3,20 +3,20 @@ MongoDb Docker Setup
 
 ### Creating a MongoDb container with volume mount
 
-`docker run -d -p <LOCAL_PORT>:27017 -v ~/<LOCAL_ABSOLUTE_PATH>:/data/db --name <IMAGE_NAME> mongo:latest`
+`docker run --name <IMAGE_NAME> -d -p <LOCAL_PORT>:27017 -v ~/<LOCAL_ABSOLUTE_PATH>:/data/db  mongo:latest`
 
 ```
-docker run -d -p 27017:27017 -v ~/MongoDb/db:/data/db --name my-mongodb mongo:latest
+docker run --name my-mongo -d -p 27017:27017 -v ~/MongoDb/db:/data/db mongo:latest
 ```
 
 ### Accessing container with bash
 `docker exec -it <CONTAINER_NAME> bash`
 
 ```
-docker exec -it my-mongodb bash
+docker exec -it my-mongo bash
 ```
 
-### Accesing mongo shell from local machine
+### Accesing mongo shell from local machine (if you have mongodb installed on your local machine)
 `mongo localhost:<MAPED_MONDO_DB_PORT>`
 
 ```
