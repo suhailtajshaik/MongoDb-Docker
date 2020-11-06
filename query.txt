@@ -1,0 +1,30 @@
+db.posts.insert({
+    "title":"Post Two",
+    "description":"This is my second post",
+    category:"Home",
+    createdAt:new ISODate(Date())
+})
+
+db.posts.update({
+    category:"Home"
+},
+{
+    $set:{
+        category:"News"
+    }
+}
+)
+
+db.posts.update({
+    category:"News"
+},
+{
+    $set:{
+        vote:0
+    }
+},
+{
+    upsert:false,
+    multi:true
+}
+)
